@@ -1,0 +1,1 @@
+make -f Makefile.emc CFG=debug MMX=off SSE2=off SSSE3=off

@@ -1,0 +1,25 @@
+default: all
+
+top_srcdir = .
+include $(top_srcdir)/Makefile.emc.common
+
+all: pixman test
+
+pixman:
+	@$(MAKE) -C pixman -f Makefile.emc
+
+test:
+	@$(MAKE) -C test -f Makefile.emc
+
+clean_r:
+	@$(MAKE) -C pixman -f Makefile.emc clean
+	@$(MAKE) -C test   -f Makefile.emc clean
+
+check:
+	@$(MAKE) -C test -f Makefile.emc check
+
+
+clean: clean_r
+
+
+.PHONY: all pixman test clean check
